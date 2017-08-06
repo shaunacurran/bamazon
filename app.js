@@ -13,6 +13,7 @@ var connection = mysql.createConnection({
 //function to connect to mysql database
 connection.connect(function(error) {
     console.log(error);
+    showProducts();
 });
 
 //display products to user
@@ -22,7 +23,7 @@ function showProducts (error, response) {
             if (error) throw error;
             inquirer.prompt ([
                 {
-                    name: greeting,
+                    name: 'greeting',
                     message: 'Hello! Welcome to Bamazon, shopping made easy and Bamtastic!'
                 },
                 {
@@ -31,7 +32,7 @@ function showProducts (error, response) {
                     choices: function (){
                         var optionArray = [];
                         for (var i = 0; i < results.length; i++) {
-                            optionArray.push(results[i].item_name);
+                            optionArray.push(results[i].product_name);
                         }
                         return optionArray;
                     },
@@ -39,4 +40,4 @@ function showProducts (error, response) {
                 },
             ])
         }
-    )};
+)};
