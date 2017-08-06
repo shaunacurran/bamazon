@@ -1,17 +1,18 @@
 {
   "name": "bamazon",
   "version": "1.0.0",
-  "description": "",
+  "description": "Bamazon Database",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shaunacurran/bamazon.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Shauna Curran",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/shaunacurran/bamazon/issues"
@@ -19,5 +20,6 @@
   "homepage": "https://github.com/shaunacurran/bamazon#readme",
   "dependencies": {
     "inquirer": "^3.2.1"
-  }
+  },
+  "devDependencies": {}
 }
