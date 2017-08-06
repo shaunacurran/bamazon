@@ -18,7 +18,7 @@ connection.connect(function(error) {
 //display products to user
 function showProducts (error, response) {
     var query = connection.query (
-        'SELECT * FROM products', function (error, response)    
+        'SELECT * FROM products', function (error, response) {   
             if (error) throw error;
             inquirer.prompt ([
                 {
@@ -28,7 +28,15 @@ function showProducts (error, response) {
                 {
                     name: 'availableProducts',
                     type: 'list',
+                    choices: function (){
+                        var optionArray = [];
+                        for (var i = 0; i < results.length; i++) {
+                            optionArray.push(results[i].item_name);
+                        }
+                        return optionArray;
+                    },
                     message: 'Which product would you like to purchase?'
                 },
             ])
-});
+        }
+    )};
