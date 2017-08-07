@@ -47,8 +47,8 @@ function showProducts(error, result) {
                 message: "Please enter the amount you would like."
             }
         ]).then(function(cart) {
-                var item= order.id;
-                var quantity = order.stockqty;             
+                var item= cart.id;
+                var quantity = cart.stockqty;             
             } 
         )
     }
