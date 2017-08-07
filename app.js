@@ -17,27 +17,37 @@ connection.connect(function(error) {
 });
 
 //display products to user
-function showProducts (error, response) {
-    var query = connection.query (
-        'SELECT * FROM products', function (error, response) {   
-            if (error) throw error;
-            inquirer.prompt ([
-                {
-                    name: 'greeting',
-                    message: 'Hello! Welcome to Bamazon, shopping made easy and Bamtastic!'
-                },
-                {
-                    name: 'availableProducts',
-                    type: 'list',
-                    choices: function (){
-                        var optionArray = [];
-                        for (var i = 0; i < results.length; i++) {
-                            optionArray.push(results[i].product_name);
-                        }
-                        return optionArray;
-                    },
-                    message: 'Which product would you like to purchase?'
-                },
-            ])
-        }
-)};
+function showProducts(error, result) {
+    connection.query('SELECT * FROM products', function(error, result) {
+        if (error) throw error;
+        inquirer.prompt([
+            {
+                name: 'greeting',
+                type: 'text',
+                message: "Welcome to Bamazon! Shopping made easy and Bamtastic! Preess enter to get started!"
+            },
+            {
+                name: 'productList',
+                type: 'list',
+                choices: function() {
+                    var optionArray = [];
+                    for (var i = 0; i < result.length; i++) {
+                    optionArray.push("Product ID: " + result[i].id + " | " + result[i].product_name);
+                    }
+                    return optionArray;
+            },
+                message: "What item would you like to purchase today?"
+            },
+            {
+                name: 'ID',
+                type: 'input',
+                message: "Please enter the ID of the product you would like to add to your collection."
+            },
+            {
+                name: 'quantity',
+                type: 'input',
+                message: "Please enter the amount you would like."
+            }
+        ]);
+    });
+}
