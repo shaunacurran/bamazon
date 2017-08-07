@@ -46,6 +46,16 @@ function showProducts(error, result) {
                 type: 'input',
                 message: "Please enter the amount you would like."
             }
+         ]);
+    });
+}
+
+            // check inventory
+            //update inventory
+            //cart function for total purchase
+            //update inventory 
+
+
 //                   ]).then(function(cart) {
 //                 var item= cart.id;
 //                 var quantity = cart.stockqty;             
@@ -53,6 +63,3 @@ function showProducts(error, result) {
 //         )
 //     }
 // });
-        ]);
-    });
-}
