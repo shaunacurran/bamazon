@@ -46,14 +46,13 @@ function showProducts(error, result) {
                 type: 'input',
                 message: "Please enter the amount you would like."
             }
-        ]).then(function(cart) {
-                var item= cart.id;
-                var quantity = cart.stockqty;             
-            } 
-        )
-    }
-});
-
-        
-        
-        
+//                   ]).then(function(cart) {
+//                 var item= cart.id;
+//                 var quantity = cart.stockqty;             
+//             } 
+//         )
+//     }
+// });
+        ]);
+    });
+}
